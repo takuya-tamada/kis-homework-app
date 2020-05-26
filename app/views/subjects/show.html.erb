@@ -1,0 +1,13 @@
+<h1><%= @subject.name %></h1>
+<p> 
+  <%= @subject.day %>曜 <%= @subject.period %>コマ
+</p>
+<hr>
+<% @homeworks.each do |homework| %>
+  <p>
+    締め切り：<%= homework.due.month %>/<%= homework.due.day%>(<%= %w(日 月 火 水 木 金 土)[homework.due.wday] %>)
+    <%= homework.name %>
+    <%= homework.else %>
+  </p>
+  <hr>
+<% end %>

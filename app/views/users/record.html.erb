@@ -1,0 +1,13 @@
+<h1>履修登録</h1>
+
+<%#= form_for([@user,@study], url: user_studies_path) do |f| %>
+<%#= form_for([@user,@study],url: {controler: "new_user_studies", : "get" } ) do |f| %>
+<%#= current_user.id %>
+<% @subjects.each do |subject| %>
+    
+    <p>
+        <%= subject.day%>曜 <%=subject.period%>コマ：&emsp;
+        <%= subject.name %> <%= link_to "この科目を履修登録する",user_studies_path(subject.id), method: :post %></p>
+    <hr>
+<% end %>
+<%= link_to "新しい科目を作成する",new_subject_path %>

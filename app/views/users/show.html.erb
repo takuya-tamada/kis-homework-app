@@ -1,0 +1,24 @@
+<h1>未提出課題一覧</h1>
+<p><%=link_to "新規課題作成",new_homework_path %></p>
+<p>↑下の一覧に無いことを確認してから作成してください。</p>
+
+<%# @studies_subjects.each do |subject| %>
+    <hr>
+    <p><%#= subject.name %></p>
+<%#end %>
+
+<% @homeworks.each do |homework| %>
+  <p>
+    <%= Subject.find(homework.subject_id).day %> <%= Subject.find(homework.subject_id).period %>
+    <%= link_to Subject.find(homework.subject_id).name, subject_path(Subject.find(homework.subject_id)) %>
+    <br>
+    <%= homework.due.month %>/<%= homework.due.day%>(<%= %w(日 月 火 水 木 金 土)[homework.due.wday] %>) :
+    <%= homework.name %>&emsp;<%= link_to "=>提出",homework_checks_path(homework.id),method: :post %>&emsp;
+    <%= link_to "編集",edit_homework_path(homework.id) %>&emsp;
+    
+    <%= homework.else %>
+    <br>
+    
+  </p>
+  <hr></hr>
+<% end %>

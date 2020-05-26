@@ -1,0 +1,32 @@
+<h1><%= @homework.name %>の編集画面</h1>
+<%= link_to "戻る",user_path(current_user) %>
+<%= form_for @homework do |f| %>
+  <p>
+    <%= f.label :subject_id,"科目名:"%>
+    <%= f.collection_select(:subject_id,@subjects,:id,:name) %>
+  </p>
+  <P> 
+    <%= f.label :name, "課題名:"%>
+    <%= f.text_field :name %> 
+  </P>
+  <p>
+    <%= f.label :due, "締め切り"%>
+    <%= f.date_field :due %>
+    <%#= f.text_field :due %>
+  </p> 
+  <p>
+    <%= f.label :else, "その他"%>
+    <br> 
+    <%= f.text_area :else %>
+  </p>
+  
+  <%= f.submit "送信" %>
+  
+<% end %>
+<br>
+<p>
+  ↓全ユーザーに対して影響を及ぼすので注意して行ってください
+  <br>
+  <%= link_to "課題を消去する",homework_path(params[:id]),method: :delete %>
+</p>
+  

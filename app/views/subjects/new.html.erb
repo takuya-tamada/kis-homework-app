@@ -1,0 +1,26 @@
+<h1>科目を追加する</h1>
+<%= form_for @subject do |f| %> 
+    <p>
+        <%= f.label :name, "科目名" %>
+        <%= f.text_field :name %>
+    </p>
+    <hr>
+    <span>曜日</span>
+    <p>
+        <%= f.radio_button :day,"月"%>月　
+        <%= f.radio_button :day,"火"%>火　
+        <%= f.radio_button :day,"水"%>水　
+        <%= f.radio_button :day,"木"%>木　
+        <%= f.radio_button :day,"金"%>金　
+    </p>
+    <span>コマ</span>
+    <p>
+        <%= f.radio_button :period,1%>1　
+        <%= f.radio_button :period,2%>2　
+        <%= f.radio_button :period,3%>3　
+        <%= f.radio_button :period,4%>4　
+        <%= f.radio_button :period,5%>5　
+    </p>
+    <%= f.submit %>
+<% end %>
+    

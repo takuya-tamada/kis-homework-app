@@ -1,0 +1,12 @@
+<h1><%=current_user.user_name %>さんの履修状況</h1>
+<% @subjects.each do |subject| %> 
+  <%= subject.day%>/<%= subject.period %>
+  <br>
+  <%= link_to subject.name, subject_path(subject) %>&emsp;
+  <%= link_to "編集する",edit_subject_path(subject) %>&emsp;
+  <%= link_to "履修解除する",user_studies_path(subject.id), method: :delete%>
+  <hr>
+<% end %>
+
+<%= link_to "履修登録画面へ",'/users/record' %>　
+<%#= link_to "科目がない場合はこちら", new_subject_path %>
