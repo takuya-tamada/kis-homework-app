@@ -39,4 +39,5 @@ class HomeworksController < ApplicationController
       params.require(:homework).permit(:subject_id, :name, :due, :else)
     end
     
+    
 end

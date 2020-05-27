@@ -7,7 +7,8 @@
     
     <p>
         <%= subject.day%>曜 <%=subject.period%>コマ：&emsp;
-        <%= subject.name %> <%= link_to "この科目を履修登録する",user_studies_path(subject.id), method: :post %></p>
+        <%= subject.name %> <br>
+        <%= link_to "この科目を履修登録する",user_studies_path(subject.id), method: :post %></p>
     <hr>
 <% end %>
 <%= link_to "新しい科目を作成する",new_subject_path %>

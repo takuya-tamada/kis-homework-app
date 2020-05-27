@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id]) 
     @studies_subjects = @user.studies_subjects
    # @homeworks = @studies_subjects.homeworks
-    @homeworks = Homework.all.where(subject_id: current_user.studies_subjects).where.not(id: current_user.checks_homeworks).where('due >= ?', Date.today).order!(:due)
+    @homeworks = Homework.all.where(subject_id: current_user.studies_subjects).where.not(id: current_user.checks_homeworks).where('due >= ?', Time.zone.now).order!(:due)
     #@homeworks = Homework.all.where(subject_id: current_user.studies_subjects).where.not(id: current_user.checks.homework_id) 今日より向こうのものを↑で指定
     #userモデルでhas_many through定義せずに上の感じでやったらダメだった
   end
