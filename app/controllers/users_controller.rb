@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = current_user 
     
     @study = Study.new
-    @subjects = Subject.all.where.not(id: @user.studies_subjects)
+    @subjects = Subject.all.where.not(id: @user.studies_subjects).order!(:classtime)
   end
   
   def cancel 
