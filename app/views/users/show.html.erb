@@ -16,6 +16,9 @@
     <%= homework.name %>&emsp;<%= link_to "=>提出",homework_checks_path(homework.id),method: :post %>&emsp;
     <%= link_to "編集",edit_homework_path(homework.id) %>&emsp;
     
+    <% if homework.else != ""%>
+    <br> 
+    <% end %>
     <%= homework.else %>
     <br>
     
