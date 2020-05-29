@@ -13,7 +13,8 @@
     <%= link_to Subject.find(homework.subject_id).name, subject_path(Subject.find(homework.subject_id)) %>
     <br>
     <%= homework.due.month %>/<%= homework.due.day%>(<%= %w(日 月 火 水 木 金 土)[homework.due.wday] %>) :
-    <%= homework.name %>&emsp;<%= link_to "=>提出",homework_checks_path(homework.id),method: :post %>&emsp;
+    <%= homework.name %>&emsp;<%= link_to("提出",homework_checks_path(homework.id), {method: :post, class: "btn btn-primary"}) %>&emsp;
+    <%#= link_to("ログアウト", logout_path, { method: :post, data: {confirm: "ログアウトしますか？"}, class: "nav-link"}) %>
     <%= link_to "編集",edit_homework_path(homework.id) %>&emsp;
     
     <% if homework.else != ""%>
