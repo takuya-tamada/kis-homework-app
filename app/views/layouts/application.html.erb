@@ -12,6 +12,12 @@
   </head>
 
   <body>
+
+
+ <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+ <% end %>
+
   <!-- 追加 -->
     <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
       <p><%= current_user.user_name%>さん </p>
