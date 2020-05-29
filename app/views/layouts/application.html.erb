@@ -24,7 +24,8 @@
       <%= link_to "未提出課題一覧", user_path(current_user) %>&emsp;
       <%= link_to "提出済み課題一覧",'/users/submit'%><br><br>
       <%= link_to "履修管理", '/users/cancel'%>&emsp;
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>&emsp;
+      <%= link_to "府大ポータル","https://portal.osakafu-u.ac.jp/" %>
       <%#= link_to "マイページ", user_path(current_user.id) %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>　
